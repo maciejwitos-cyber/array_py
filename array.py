@@ -1,30 +1,43 @@
-def printArray(array: list[int]):
+def print_array(array: list[int]):
     for i in range (len(array)):
         print(f"array[{i}]: {array[i]}")
 
-def entervalues(array: list[int]):
-    i=0;
+
+def enter_values(array: list[int]):
+    i=0
     while i < len(array):
         try:
             print(f"Liczba {i + 1}", end="")
             array[i] = int(input())
             i += 1
         except:
-            print(f"nie poprawna wartośc, wprowadź lczbę całkowitą:")
+            print(f"niepoprawna wartośc, wprowadź lczbę całkowitą:")
 
 
-def minvalue(array: list[int]):
+def min_value(array: list[int]):
+    min = array[0]
+    for i in range(1, len(array)):
+        if array[i] < min:
+            min = array[i]
+    return min
 
 
+def max_value(array: list[int]):
+    max = array[0]
+    for i in range(1, len(array)):
+        if array[i] > max:
+            max = array[i]
+    return max
 
-def maxvalue(array: list[int]):
-    pass
+def calculate_sum(array: list[int]):
+    sum = 0
+    for i in range(len(array)):
+        sum += array[i]
+    return sum
 
-def calculateSum(array: list[int]):
-    pass
-
-def avgvalue(array: list[int]):
-    pass
+def avg_value(array: list[int]):
+    avg = calculate_sum(array) / len(array)
+    return avg
 
 def menu():
     print("\t1. Enter the values into the array")
@@ -35,26 +48,24 @@ def menu():
     print("\t0. EXIT")
     print("\tSelect an option:")
 
-
 def main():
     print(f'Test, {__name__}')
     array = [0] * 10
 
-
     while True:
         menu()
         option = int(input())
-        match(option):
+        match option:
             case 1:
-                entervalues(array)
+                enter_values(array)
             case 2:
-                printArray(array)
+                print_array(array)
             case 3:
-                pass
+                print(f'Minimum value: {min_value(array)}')
             case 4:
-                pass
+                print(f'Maximum value: {max_value(array)}')
             case 5:
-                pass
+                print(f'Average value: {avg_value(array)}')
             case 0:
                 break
             case _:
