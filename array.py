@@ -1,19 +1,29 @@
-def printArray():
+def printArray(array: list[int]):
+    for i in range (len(array)):
+        print(f"array[{i}]: {array[i]}")
+
+def entervalues(array: list[int]):
+    i=0;
+    while i < len(array):
+        try:
+            print(f"Liczba {i + 1}", end="")
+            array[i] = int(input())
+            i += 1
+        except:
+            print(f"nie poprawna wartośc, wprowadź lczbę całkowitą:")
+
+
+def minvalue(array: list[int]):
+
+
+
+def maxvalue(array: list[int]):
     pass
 
-def entervalues():
+def calculateSum(array: list[int]):
     pass
 
-def minvalue():
-    pass
-
-def maxvalue():
-    pass
-
-def calculateSum():
-    pass
-
-def avgvalue():
+def avgvalue(array: list[int]):
     pass
 
 def menu():
@@ -31,15 +41,14 @@ def main():
     array = [0] * 10
 
 
-
     while True:
         menu()
         option = int(input())
         match(option):
             case 1:
-                pass
+                entervalues(array)
             case 2:
-                pass
+                printArray(array)
             case 3:
                 pass
             case 4:
